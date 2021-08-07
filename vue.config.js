@@ -12,6 +12,10 @@ module.exports = {
         exposes: {
           "./Login": "./src/components/Login",
           "./Logout": "./src/components/Logout",
+          "./UserTools": "./src/exposes/UserTools",
+        },
+        remotes: {
+          store: process.env.REMOTE_STORE,
         },
         shared: require("./package.json").dependencies,
       }),
