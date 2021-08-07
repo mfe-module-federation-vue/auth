@@ -1,22 +1,51 @@
 <template>
-  <form>
-    <VTextField placeholder="username" id="username" />
-    <br />
-    <VTextField placeholder="password" id="password" type="password" />
-    <br />
-    <VBtn color="primary" @click="setToken">Sign in</VBtn>
-  </form>
+  <VCard class="mx-auto mt-4" max-width="344">
+    <form>
+      <VCardText>
+        <VTextField
+          placeholder="email"
+          label="Email"
+          id="email"
+          v-model="credentials.email"
+        />
+        <br />
+        <VTextField
+          placeholder="password"
+          id="password"
+          label="Senha"
+          v-model="credentials.password"
+          type="password"
+        />
+      </VCardText>
+      <VCardActions>
+        <VBtn color="primary" @click="setToken">Sign in</VBtn>
+      </VCardActions>
+    </form>
+  </VCard>
 </template>
 
 <script>
+import { login } from "@/service/auth.service";
 import { dealful } from "../remotes/dealful";
 
 export default {
   name: "Login",
+  data: () => {
+    return {
+      credentials: {
+        email: "user@email.com",
+        password: "123456",
+      },
+    };
+  },
   methods: {
-    setToken() {
+    async setToken() {
+      const token = await login(
+        this.credentials.email,
+        this.credentials.password
+      );
       try {
-        const tokenFromSomeRequest = "faketoken-123";
+        const tokenFromSomeRequest = token;
         localStorage.setItem(dealful.STORAGE_KEYS.TOKEN, tokenFromSomeRequest);
         this.$router.push("/");
       } catch (error) {
