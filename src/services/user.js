@@ -1,7 +1,5 @@
 import { dealful } from "../remotes/dealful";
 
-const custom = new CustomEvent(dealful.EVENT_KEYS.USER);
-
 export const fetchUser = () => {
   return new Promise((resolve) => {
     fetch("https://randomuser.me/api/")
@@ -40,7 +38,9 @@ export const changeUser = async () => {
       JSON.stringify(fakeUserData)
     );
     console.log("%c set user called - store", "color: red;");
-    return await window.dispatchEvent(custom);
+    return await dealful.emitter.emit(dealful.EVENT_KEYS.CHANGE_USER, () => {
+      return fakeUserData;
+    });
   } catch (error) {
     console.error("user set erro request", error);
   }
