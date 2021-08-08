@@ -26,7 +26,7 @@
 
 <script>
 import { login } from "@/service/auth.service";
-import { dealful } from "../remotes/dealful";
+import { STORAGE_KEYS } from "../remotes/dealful";
 
 export default {
   name: "Login",
@@ -46,7 +46,7 @@ export default {
       );
       try {
         const tokenFromSomeRequest = token;
-        localStorage.setItem(dealful.STORAGE_KEYS.TOKEN, tokenFromSomeRequest);
+        localStorage.setItem(STORAGE_KEYS.TOKEN, tokenFromSomeRequest);
         this.$router.push("/");
       } catch (error) {
         console.error(error);

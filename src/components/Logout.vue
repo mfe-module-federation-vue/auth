@@ -5,14 +5,14 @@
 </template>
 
 <script>
-import { dealful } from "../remotes/dealful";
+import { STORAGE_KEYS } from "../remotes/dealful";
 
 export default {
   name: "Logout",
   methods: {
     removeToken() {
       try {
-        localStorage.setItem(dealful.STORAGE_KEYS.TOKEN, "");
+        localStorage.setItem(STORAGE_KEYS.TOKEN, "");
         this.$router.push("/login");
       } catch (error) {
         console.error(error);

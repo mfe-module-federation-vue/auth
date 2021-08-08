@@ -1,4 +1,4 @@
-import { dealful } from "../remotes/dealful";
+import { STORAGE_KEYS, EVENT_KEYS, emitter } from "../remotes/dealful";
 
 export const fetchUser = () => {
   return new Promise((resolve) => {
@@ -6,7 +6,7 @@ export const fetchUser = () => {
       .then((res) => res.json())
       .then((res) => {
         localStorage.setItem(
-          dealful.STORAGE_KEYS.USER_DATA,
+          STORAGE_KEYS.USER_DATA,
           JSON.stringify(res.results[0])
         );
         resolve(res);
@@ -33,12 +33,9 @@ export const changeUser = async () => {
           "https://imagens3.ne10.uol.com.br/blogsne10/social1/uploads/2021/05/Ramon-Valdes-como-Seu-Madruga-em-Chaves.jpg",
       },
     };
-    localStorage.setItem(
-      dealful.STORAGE_KEYS.USER_DATA,
-      JSON.stringify(fakeUserData)
-    );
+    localStorage.setItem(STORAGE_KEYS.USER_DATA, JSON.stringify(fakeUserData));
     console.log("%c set user called - store", "color: red;");
-    return await dealful.emitter.emit(dealful.EVENT_KEYS.CHANGE_USER, () => {
+    return await emitter.emit(EVENT_KEYS.CHANGE_USER, () => {
       return fakeUserData;
     });
   } catch (error) {
