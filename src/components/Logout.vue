@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { STORAGE_KEYS } from "../remotes/dealful";
+import { STORAGE_KEYS } from "../dealful";
 
 export default {
   name: "Logout",

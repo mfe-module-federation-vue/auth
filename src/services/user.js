@@ -1,4 +1,4 @@
-import { STORAGE_KEYS, EVENT_KEYS, emitter } from "../remotes/dealful";
+import { STORAGE_KEYS, EVENT_KEYS, emitter } from "../dealful";
 
 export const fetchUser = () => {
   return new Promise((resolve) => {

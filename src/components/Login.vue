@@ -26,7 +26,7 @@
 
 <script>
 import { login } from "@/services/auth.service";
-import { STORAGE_KEYS } from "../remotes/dealful";
+import { STORAGE_KEYS } from "../dealful";
 
 export default {
   name: "Login",
