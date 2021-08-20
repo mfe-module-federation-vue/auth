@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { login } from "@/service/auth.service";
+import { login } from "@/services/auth.service";
 import { STORAGE_KEYS } from "../remotes/dealful";
 
 export default {
