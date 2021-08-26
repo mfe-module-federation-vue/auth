@@ -2,14 +2,14 @@
   <VCard class="mx-auto mt-4" max-width="344">
     <form>
       <VCardText>
-        <VTextField
+        <DSInput
           placeholder="email"
           label="Email"
           id="email"
           v-model="credentials.email"
         />
         <br />
-        <VTextField
+        <DSInput
           placeholder="password"
           id="password"
           label="Senha"
@@ -18,7 +18,7 @@
         />
       </VCardText>
       <VCardActions>
-        <VBtn color="primary" @click="setToken">Sign in</VBtn>
+        <DSButton @click="setToken">Sign in </DSButton>
       </VCardActions>
     </form>
   </VCard>
@@ -27,9 +27,16 @@
 <script>
 import { login } from "@/services/auth.service";
 import { STORAGE_KEYS } from "../dealful";
+import { login } from "@/service/auth.service";
+import DSButton from "ds/DSButton";
+import DSInput from "ds/DSInput";
 
 export default {
   name: "Login",
+  components: {
+    DSButton,
+    DSInput,
+  },
   data: () => {
     return {
       credentials: {

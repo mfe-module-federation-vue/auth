@@ -1,5 +1,5 @@
 {
-  "name": "@microfrontend-vue/auth",
+  "name": "@mfe-module-federation-vue/auth",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
   "dependencies": {
     "@mfe-module-federation-vue/dealful-package": "^0.0.3",
     "core-js": "^3.6.5",
-    "firebase": "^8.9.0",
+    "firebase": "^8.10.0",
     "http-server": "^0.12.3",
     "vue": "^2.6.11",
     "vuetify": "^2.4.0"

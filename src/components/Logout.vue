@@ -1,14 +1,18 @@
 <template>
   <div>
-    <VBtn color="orange" @click="removeToken">Log out</VBtn>
+    <DSButton color="orange" @click="removeToken">Log out</DSButton>
   </div>
 </template>
 
 <script>
 import { STORAGE_KEYS } from "../dealful";
+import DSButton from "ds/DSButton";
 
 export default {
   name: "Logout",
+  components: {
+    DSButton,
+  },
   methods: {
     removeToken() {
       try {
