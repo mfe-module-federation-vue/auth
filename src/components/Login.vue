@@ -25,15 +25,17 @@
 </template>
 
 <script>
+import { login } from "@/services/auth.service";
+import { STORAGE_KEYS } from "../dealful";
 import { login } from "@/service/auth.service";
-import { dealful } from "../remotes/dealful";
 import DSButton from "ds/DSButton";
 import DSInput from "ds/DSInput";
 
 export default {
   name: "Login",
   components: {
-    DSButton,DSInput
+    DSButton,
+    DSInput,
   },
   data: () => {
     return {
@@ -51,7 +53,7 @@ export default {
       );
       try {
         const tokenFromSomeRequest = token;
-        localStorage.setItem(dealful.STORAGE_KEYS.TOKEN, tokenFromSomeRequest);
+        localStorage.setItem(STORAGE_KEYS.TOKEN, tokenFromSomeRequest);
         this.$router.push("/");
       } catch (error) {
         console.error(error);

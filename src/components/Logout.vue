@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { dealful } from "../remotes/dealful";
+import { STORAGE_KEYS } from "../dealful";
 import DSButton from "ds/DSButton";
 
 export default {
@@ -16,7 +16,7 @@ export default {
   methods: {
     removeToken() {
       try {
-        localStorage.setItem(dealful.STORAGE_KEYS.TOKEN, "");
+        localStorage.setItem(STORAGE_KEYS.TOKEN, "");
         this.$router.push("/login");
       } catch (error) {
         console.error(error);
