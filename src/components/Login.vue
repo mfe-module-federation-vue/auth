@@ -27,7 +27,6 @@
 <script>
 import { login } from "@/services/auth.service";
 import { STORAGE_KEYS } from "../dealful";
-import { login } from "@/service/auth.service";
 import DSButton from "ds/DSButton";
 import DSInput from "ds/DSInput";
 
